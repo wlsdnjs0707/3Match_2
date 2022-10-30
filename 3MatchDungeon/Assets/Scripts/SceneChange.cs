@@ -17,19 +17,21 @@ public class SceneChange : MonoBehaviour
     public void EnteringStage1()
     {
         SceneManager.LoadScene("Stage1");
-        //Debug.Log("Game Scene Changed");
     }
 
     public void EnteringStage2()
     {
         SceneManager.LoadScene("Stage2");
-        //Debug.Log("Game Scene Changed");
     }
 
     public void EnteringStage3()
     {
         SceneManager.LoadScene("Stage3");
-        //Debug.Log("Game Scene Changed");
+    }
+
+    public void EnteringShop()
+    {
+        SceneManager.LoadScene("Shop");
     }
 
     // Start is called before the first frame update

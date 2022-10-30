@@ -195,19 +195,21 @@ public sealed class Board : MonoBehaviour
         if (HealthManager.Instance.Health <= 0)
         {
             // Win Event
-
             if (SceneManager.GetActiveScene().name == "Stage1")
             {
                 GameManager.instance.stage2access = true;
+                GameManager.instance.coin += 100;
             }
 
             if (SceneManager.GetActiveScene().name == "Stage2")
             {
                 GameManager.instance.stage3access = true;
+                GameManager.instance.coin += 500;
             }
 
             if (SceneManager.GetActiveScene().name == "Stage3")
             {
+                GameManager.instance.coin += 5000;
                 // Ending
             }
 

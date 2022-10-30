@@ -505,7 +505,7 @@ RectTransform:
   m_GameObject: {fileID: 594468412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.179375, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 850692976}
@@ -513,7 +513,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1, y: -0}
+  m_AnchoredPosition: {x: -6, y: 0}
   m_SizeDelta: {x: 360, y: 720}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &594468414
@@ -583,8 +583,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ca32ddb55e3c53409255ffdbd510bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game2access: 0
-  game3access: 0
+  stage2access: 0
+  stage3access: 0
+  coin: 0
 --- !u!4 &782512301
 Transform:
   m_ObjectHideFlags: 0

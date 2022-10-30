@@ -19,19 +19,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-/*    public static GameManager Instance
-    {
-        get
-        {
-            if(null == instance)
-            {
-                return null;
-            }
-            return instance;
-        }
-    }*/
-
     public bool stage2access = false;
     public bool stage3access = false;
+
+    public int coin = 0;
 
 }
