@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public sealed class HealthManager : MonoBehaviour
 {
     public static HealthManager Instance { get; private set; }
 
-    public int _health = 100;
+    public int _health;
 
     public int Health
     {
@@ -31,6 +32,23 @@ public sealed class HealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _health = GameManager.instance.stageHealth;
+
+        if (SceneManager.GetActiveScene().name == "Stage1")
+        {
+            _health += 0;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage2")
+        {
+            _health += 50;
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage3")
+        {
+            _health += 150;
+        }
+
         healthText.SetText($"HEALTH : {_health}");
     }
 

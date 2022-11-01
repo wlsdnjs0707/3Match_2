@@ -7,7 +7,7 @@ public sealed class MoveCountManager : MonoBehaviour
 {
     public static MoveCountManager Instance { get; private set; }
 
-    public int _count = 10;
+    public int _count;
 
     public int Count
     {
@@ -31,6 +31,8 @@ public sealed class MoveCountManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _count = GameManager.instance.moveCount;
+
         moveCountText.SetText($"MOVE : {_count}");
     }
 

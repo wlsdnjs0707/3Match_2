@@ -24,4 +24,6 @@ public class GameManager : MonoBehaviour
 
     public int coin = 0;
 
+    public int moveCount = 10;
+    public int stageHealth = 50;
 }
