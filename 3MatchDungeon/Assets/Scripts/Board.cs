@@ -26,7 +26,7 @@ public sealed class Board : MonoBehaviour
     [SerializeField] private TextMeshProUGUI statusText;
     [SerializeField] private TextMeshProUGUI coinText;
 
-    private int reward = 0;
+    private float reward = 0;
 
     private bool whilePopping = false;
     private bool whileSwapping = false;
@@ -189,7 +189,7 @@ public sealed class Board : MonoBehaviour
                     if (connectedTiles.Skip(1).Count() < 2) continue;
 
                     // Damage Dealt
-                    HealthManager.Instance.Health -= connectedTiles.Count;
+                    HealthManager.Instance.Health -= (connectedTiles.Count + GameManager.instance.damage * 2);
 
                     // Play Sound Effect
                     _audioSource.PlayOneShot(collectSound);
@@ -235,12 +235,14 @@ public sealed class Board : MonoBehaviour
             {
                 GameManager.instance.stage2access = true;
                 reward = 100;
+                coinText.SetText($"{reward}");
             }
 
             if (SceneManager.GetActiveScene().name == "Stage2")
             {
                 GameManager.instance.stage3access = true;
                 reward = 500;
+                coinText.SetText($"{reward}");
             }
 
             if (SceneManager.GetActiveScene().name == "Stage3")
@@ -249,7 +251,6 @@ public sealed class Board : MonoBehaviour
             }
 
             statusText.SetText($"YOU WIN");
-            coinText.SetText($"{reward}");
             GameManager.instance.coin += reward;
 
             // Stop
@@ -277,17 +278,17 @@ public sealed class Board : MonoBehaviour
 
             if (SceneManager.GetActiveScene().name == "Stage1")
             {
-                reward = 50 - HealthManager.Instance.Health;
+                reward = 100 - HealthManager.Instance.Health;
             }
 
             if (SceneManager.GetActiveScene().name == "Stage2")
             {
-                reward = 150 - HealthManager.Instance.Health;
+                reward = 200 - HealthManager.Instance.Health;
             }
 
             if (SceneManager.GetActiveScene().name == "Stage3")
             {
-                reward = 300 - HealthManager.Instance.Health;
+                reward = 400 - HealthManager.Instance.Health;
             }
 
             statusText.SetText($"YOU LOSE");

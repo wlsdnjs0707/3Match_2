@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
     public bool stage2access = false;
     public bool stage3access = false;
 
-    public int coin = 0;
+    public float coin = 0;
 
+    public int damage = 0;
     public int moveCount = 10;
-    public int stageHealth = 50;
+    public float stageHealth = 100;
 }

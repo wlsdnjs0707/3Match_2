@@ -11,12 +11,18 @@ public class Shop : MonoBehaviour
 
     public Button ExitButton;
     public Button Item1Button;
+    public Button Item2Button;
 
     private int count = 0;
+    private int damage = 0;
 
     public GameObject Item1_Star1;
     public GameObject Item1_Star2;
     public GameObject Item1_Star3;
+
+    public GameObject Item2_Star1;
+    public GameObject Item2_Star2;
+    public GameObject Item2_Star3;
 
     public void ShopExit()
     {
@@ -35,11 +41,22 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void BuyItem2()
+    {
+        if (GameManager.instance.damage < 3 && GameManager.instance.coin >= 500)
+        {
+            GameManager.instance.coin -= 500;
+            GameManager.instance.damage += 1;
+
+            shopRefresh();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // for test
-        //GameManager.instance.coin += 1000;
+        GameManager.instance.coin += 1000;
 
         shopRefresh();
     }
@@ -53,6 +70,7 @@ public class Shop : MonoBehaviour
     public void shopRefresh()
     {
         count = GameManager.instance.moveCount;
+        damage = GameManager.instance.damage;
 
         coinText.SetText($"{GameManager.instance.coin}");
 
@@ -74,6 +92,27 @@ public class Shop : MonoBehaviour
                 Item1_Star3.SetActive(true);
 
                 Item1Button.interactable = false;
+            }
+        }
+
+        if (damage >= 1)
+        {
+            if (damage == 1)
+            {
+                Item2_Star1.SetActive(true);
+            }
+            else if (damage == 2)
+            {
+                Item2_Star1.SetActive(true);
+                Item2_Star2.SetActive(true);
+            }
+            else if (damage == 3)
+            {
+                Item2_Star1.SetActive(true);
+                Item2_Star2.SetActive(true);
+                Item2_Star3.SetActive(true);
+
+                Item2Button.interactable = false;
             }
         }
     }

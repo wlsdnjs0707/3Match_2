@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public sealed class HealthManager : MonoBehaviour
 {
     public static HealthManager Instance { get; private set; }
 
-    public int _health;
+    public Image HealthBar;
 
-    public int Health
+    public float _health;
+    private float maxHealth;
+
+    public float Health
     {
         get => _health;
 
@@ -36,17 +40,19 @@ public sealed class HealthManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Stage1")
         {
-            _health += 0;
+            maxHealth = 100;
         }
 
         if (SceneManager.GetActiveScene().name == "Stage2")
         {
-            _health += 50;
+            maxHealth = 200;
+            _health += 100;
         }
 
         if (SceneManager.GetActiveScene().name == "Stage3")
         {
-            _health += 150;
+            maxHealth = 400;
+            _health += 300;
         }
 
         healthText.SetText($"HEALTH : {_health}");
@@ -55,6 +61,6 @@ public sealed class HealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        HealthBar.fillAmount = _health / maxHealth;
     }
 }
